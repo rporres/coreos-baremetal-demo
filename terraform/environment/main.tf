@@ -3,22 +3,22 @@ variable "etcd_initial_cluster" {
 }
 
 module "master_1" {
-  source = "../modules/server/master"
-  hostname = "master-1.infra.local"
-  mac_address = "08:00:27:ab:10:01"
+  source               = "../modules/server/master"
+  hostname             = "master-1.infra.local"
+  mac_address          = "08:00:27:ab:10:01"
   etcd_initial_cluster = "${var.etcd_initial_cluster}"
 }
 
 module "master_2" {
-  source = "../modules/server/master"
-  hostname = "master-2.infra.local"
-  mac_address = "08:00:27:ab:10:02"
+  source               = "../modules/server/master"
+  hostname             = "master-2.infra.local"
+  mac_address          = "08:00:27:ab:10:02"
   etcd_initial_cluster = "${var.etcd_initial_cluster}"
 }
 
 module "master_3" {
-  source = "../modules/server/master"
-  hostname = "master-3.infra.local"
-  mac_address = "08:00:27:ab:10:03"
+  source               = "../modules/server/master"
+  hostname             = "master-3.infra.local"
+  mac_address          = "08:00:27:ab:10:03"
   etcd_initial_cluster = "${var.etcd_initial_cluster}"
 }

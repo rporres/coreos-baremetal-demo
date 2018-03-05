@@ -5,7 +5,7 @@ data "ignition_config" "master" {
   ]
 
   users = [
-    "${module.ignition_users.demo}"
+    "${module.ignition_users.demo}",
   ]
 
   systemd = [
@@ -15,7 +15,7 @@ data "ignition_config" "master" {
   ]
 
   files = [
-    "${module.ignition_files.hostname}"
+    "${module.ignition_files.hostname}",
   ]
 }
 
