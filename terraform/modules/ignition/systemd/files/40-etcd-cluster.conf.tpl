@@ -1,0 +1,10 @@
+[Service]
+Environment="ETCD_IMAGE_TAG=${etcd_image_tag}"
+Environment="ETCD_NAME=${etcd_name}"
+Environment="ETCD_ADVERTISE_CLIENT_URLS=http://${etcd_fqdn}:2379"
+Environment="ETCD_INITIAL_ADVERTISE_PEER_URLS=http://${etcd_fqdn}:2380"
+Environment="ETCD_LISTEN_CLIENT_URLS=${etcd_listen_client_urls}"
+Environment="ETCD_LISTEN_PEER_URLS=${etcd_listen_peers_urls}"
+Environment="ETCD_INITIAL_CLUSTER=${etcd_initial_cluster}"
+Environment="ETCD_STRICT_RECONFIG_CHECK=true"
+Environment="ETCD_DATA_DIR=${etcd_data_dir}"

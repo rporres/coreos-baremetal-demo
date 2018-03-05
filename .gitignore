@@ -1,0 +1,5 @@
+.vagrant
+*.log
+.terraform
+terraform.tfstate*
+plan.out

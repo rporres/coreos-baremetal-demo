@@ -1,0 +1,24 @@
+[Unit]
+Description=Matchbox Service
+After=docker.service
+Requires=docker.service
+After=dnsmasq.service
+Requires=dnsmasq.service
+
+[Service]
+TimeoutStartSec=20m
+ExecStartPre=-/usr/bin/docker kill matchbox
+ExecStartPre=-/usr/bin/docker rm matchbox
+ExecStart=/usr/bin/docker run --name matchbox --rm \
+    -p 8080:8080 \
+    -p 8081:8081 \
+    -v /var/lib/matchbox:/var/lib/matchbox \
+    -v /etc/matchbox:/etc/matchbox:ro \
+    quay.io/coreos/matchbox:latest \
+        -address=0.0.0.0:8080 \
+        -rpc-address=0.0.0.0:8081 \
+        -log-level=debug
+ExecStop=/usr/bin/docker stop matchbox
+
+[Install]
+WantedBy=multi-user.target

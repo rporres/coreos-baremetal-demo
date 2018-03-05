@@ -1,0 +1,13 @@
+[Unit]
+Description=dnsmasq service
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=20m
+ExecStartPre=-/usr/bin/docker rm dnsmasq
+ExecStart=/usr/bin/docker run --rm --name dnsmasq --net=host --cap-add=NET_ADMIN -v /etc/dnsmasq.conf:/etc/dnsmasq.conf quay.io/coreos/dnsmasq
+ExecStop=/usr/bin/docker stop dnsmasq
+
+[Install]
+WantedBy=multi-user.target
