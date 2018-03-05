@@ -2,8 +2,6 @@
 Description=Matchbox Service
 After=docker.service
 Requires=docker.service
-After=dnsmasq.service
-Requires=dnsmasq.service
 
 [Service]
 TimeoutStartSec=20m
